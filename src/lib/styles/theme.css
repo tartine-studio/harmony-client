@@ -1,0 +1,73 @@
+/*
+ * Theme tokens.
+ *
+ * Components must only use these semantic variables, never raw colors.
+ * A theme is a set of values for the same variables, selected with
+ * `data-theme` on <html>. Without it, the OS preference applies.
+ * Adding a theme = adding one `[data-theme="..."]` block.
+ */
+
+:root,
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  --color-bg: #1e1f22;
+  --color-bg-elevated: #2b2d31;
+  --color-surface: #313338;
+  --color-text: #f2f3f5;
+  --color-text-muted: #949ba4;
+  --color-accent: #7c6cf2;
+  --color-accent-contrast: #ffffff;
+  --color-border: #3f4147;
+
+  --color-status-online: #23a55a;
+  --color-status-idle: #f0b232;
+  --color-status-offline: #80848e;
+  --color-danger: #f23f43;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --color-bg: #f2f3f5;
+  --color-bg-elevated: #ffffff;
+  --color-surface: #ffffff;
+  --color-text: #1e1f22;
+  --color-text-muted: #5c5e66;
+  --color-accent: #5b4bdb;
+  --color-accent-contrast: #ffffff;
+  --color-border: #d9dadc;
+
+  --color-status-online: #1a8a4a;
+  --color-status-idle: #c98a0e;
+  --color-status-offline: #6d6f78;
+  --color-danger: #d22d31;
+}
+
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme]) {
+    color-scheme: light;
+
+    --color-bg: #f2f3f5;
+    --color-bg-elevated: #ffffff;
+    --color-surface: #ffffff;
+    --color-text: #1e1f22;
+    --color-text-muted: #5c5e66;
+    --color-accent: #5b4bdb;
+    --color-accent-contrast: #ffffff;
+    --color-border: #d9dadc;
+
+    --color-status-online: #1a8a4a;
+    --color-status-idle: #c98a0e;
+    --color-status-offline: #6d6f78;
+    --color-danger: #d22d31;
+  }
+}
+
+:root {
+  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+
+  --radius-sm: 4px;
+  --radius-md: 8px;
+}
