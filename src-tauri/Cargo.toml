@@ -21,6 +21,18 @@ tauri-build = { version = "2", features = [] }
 tauri = { version = "2", features = [] }
 serde = { version = "1", features = ["derive"] }
 serde_json = "1"
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "sync", "time", "macros"] }
+reqwest = { version = "0.13.5", default-features = false, features = ["json", "rustls", "http2"] }
+tokio-tungstenite = { version = "0.30.0", features = ["rustls-tls-native-roots"] }
+futures-util = { version = "0.3.34", default-features = false, features = ["sink", "std"] }
+thiserror = "2.0.21"
+url = "2.5.8"
+base64 = "0.23.1"
+tracing = "0.1.44"
+uuid = { version = "1.29.0", features = ["v4"] }
+ts-rs = "12.0.1"
+keyring = "4.2.0"
+tracing-subscriber = { version = "0.3.23", features = ["env-filter", "fmt"] }
 
 
 # Read the optimization guideline for more details: https://tauri.app/concept/size/#cargo-configuration
@@ -30,3 +42,7 @@ lto = true
 opt-level = 3
 panic = "abort"
 strip = true
+
+[dev-dependencies]
+tokio = { version = "1.54.1", features = ["rt-multi-thread", "sync", "time", "macros", "test-util", "net"] }
+wiremock = "0.6.5"
