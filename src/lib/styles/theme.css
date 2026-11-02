@@ -5,69 +5,174 @@
  * A theme is a set of values for the same variables, selected with
  * `data-theme` on <html>. Without it, the OS preference applies.
  * Adding a theme = adding one `[data-theme="..."]` block.
+ *
+ * Dark values come from design/DESIGN.md. The light theme hasn't been
+ * designed yet: its values are a readable placeholder.
  */
 
 :root,
 :root[data-theme="dark"] {
   color-scheme: dark;
 
-  --color-bg: #1e1f22;
-  --color-bg-elevated: #2b2d31;
-  --color-surface: #313338;
-  --color-text: #f2f3f5;
-  --color-text-muted: #949ba4;
-  --color-accent: #7c6cf2;
-  --color-accent-contrast: #ffffff;
-  --color-border: #3f4147;
+  --color-bg: #1b1d21;
+  --color-bg-sunken: #17191c;
+  --color-bg-deep: #141619;
+  --color-bg-outer: #111214;
+  --color-bg-elevated: #262a2f;
+  --color-bg-active: #2a2e34;
+  --color-bg-hover: #202328;
+  --color-surface: #23272c;
+  --color-text: #ecedee;
+  --color-text-strong: #f2f3f4;
+  --color-text-body: #dadde1;
+  --color-text-secondary: #c3c8ce;
+  --color-text-muted: #a4aab2;
+  --color-text-subtle: #8a919a;
+  --color-accent: #7cd4a8;
+  --color-accent-hover: #a6e6c6;
+  --color-accent-contrast: #0f2a1e;
+  --color-border: #24272c;
+  --color-border-strong: #30353b;
+  --color-control-off: #3a3f46;
+  --color-overlay-shadow: rgb(0 0 0 / 0.45);
 
-  --color-status-online: #23a55a;
-  --color-status-idle: #f0b232;
-  --color-status-offline: #80848e;
-  --color-danger: #f23f43;
+  --color-status-online: #4fcb8c;
+  --color-status-idle: #f0b44c;
+  --color-status-offline: #7a8189;
+  --color-danger: #e5665a;
+  --color-danger-soft: #2a1f1e;
+  --color-danger-text: #f59a8c;
+  --color-danger-contrast: #1a0a08;
+
+  /* Avatar tints (initials on a per-user color). */
+  --avatar-0-bg: #2f4a5e;
+  --avatar-0-fg: #bfe0f5;
+  --avatar-1-bg: #4a3a5e;
+  --avatar-1-fg: #e2ccf5;
+  --avatar-2-bg: #5e4a2f;
+  --avatar-2-fg: #f5ddbf;
+  --avatar-3-bg: #2f5e4c;
+  --avatar-3-fg: #bff5de;
+  --avatar-4-bg: #5e2f3f;
+  --avatar-4-fg: #f5bfd0;
+  --avatar-5-bg: #3f4a5e;
+  --avatar-5-fg: #ccd7ee;
+  --avatar-6-bg: #4a4f3a;
+  --avatar-6-fg: #e5ebc7;
 }
 
 :root[data-theme="light"] {
   color-scheme: light;
 
-  --color-bg: #f2f3f5;
-  --color-bg-elevated: #ffffff;
+  --color-bg: #ffffff;
+  --color-bg-sunken: #f3f4f6;
+  --color-bg-deep: #eceef1;
+  --color-bg-outer: #f7f8f9;
+  --color-bg-elevated: #f3f4f6;
+  --color-bg-active: #e4e7eb;
+  --color-bg-hover: #eceef1;
   --color-surface: #ffffff;
-  --color-text: #1e1f22;
-  --color-text-muted: #5c5e66;
-  --color-accent: #5b4bdb;
+  --color-text: #1b1d21;
+  --color-text-strong: #111214;
+  --color-text-body: #262a2f;
+  --color-text-secondary: #3a3f46;
+  --color-text-muted: #545b64;
+  --color-text-subtle: #616872;
+  --color-accent: #1f7a50;
+  --color-accent-hover: #186240;
   --color-accent-contrast: #ffffff;
-  --color-border: #d9dadc;
+  --color-border: #e1e4e8;
+  --color-border-strong: #cfd4da;
+  --color-control-off: #c4c9cf;
+  --color-overlay-shadow: rgb(0 0 0 / 0.15);
 
-  --color-status-online: #1a8a4a;
-  --color-status-idle: #c98a0e;
-  --color-status-offline: #6d6f78;
-  --color-danger: #d22d31;
+  --color-status-online: #1f9d5c;
+  --color-status-idle: #b87a0e;
+  --color-status-offline: #7a8189;
+  --color-danger: #c4382c;
+  --color-danger-soft: #fbe9e7;
+  --color-danger-text: #a52a1f;
+  --color-danger-contrast: #ffffff;
+
+  --avatar-0-bg: #d4e6f3;
+  --avatar-0-fg: #1e3a4e;
+  --avatar-1-bg: #e6dbf3;
+  --avatar-1-fg: #3a2a4e;
+  --avatar-2-bg: #f3e6d4;
+  --avatar-2-fg: #4e3a1e;
+  --avatar-3-bg: #d4f3e6;
+  --avatar-3-fg: #1e4e3a;
+  --avatar-4-bg: #f3d4de;
+  --avatar-4-fg: #4e1e2e;
+  --avatar-5-bg: #dbe2ef;
+  --avatar-5-fg: #2e3a4e;
+  --avatar-6-bg: #e8ecd8;
+  --avatar-6-fg: #3a3f2a;
 }
 
 @media (prefers-color-scheme: light) {
   :root:not([data-theme]) {
     color-scheme: light;
 
-    --color-bg: #f2f3f5;
-    --color-bg-elevated: #ffffff;
+    --color-bg: #ffffff;
+    --color-bg-sunken: #f3f4f6;
+    --color-bg-deep: #eceef1;
+    --color-bg-outer: #f7f8f9;
+    --color-bg-elevated: #f3f4f6;
+    --color-bg-active: #e4e7eb;
+    --color-bg-hover: #eceef1;
     --color-surface: #ffffff;
-    --color-text: #1e1f22;
-    --color-text-muted: #5c5e66;
-    --color-accent: #5b4bdb;
+    --color-text: #1b1d21;
+    --color-text-strong: #111214;
+    --color-text-body: #262a2f;
+    --color-text-secondary: #3a3f46;
+    --color-text-muted: #545b64;
+    --color-text-subtle: #616872;
+    --color-accent: #1f7a50;
+    --color-accent-hover: #186240;
     --color-accent-contrast: #ffffff;
-    --color-border: #d9dadc;
+    --color-border: #e1e4e8;
+    --color-border-strong: #cfd4da;
+    --color-control-off: #c4c9cf;
+    --color-overlay-shadow: rgb(0 0 0 / 0.15);
 
-    --color-status-online: #1a8a4a;
-    --color-status-idle: #c98a0e;
-    --color-status-offline: #6d6f78;
-    --color-danger: #d22d31;
+    --color-status-online: #1f9d5c;
+    --color-status-idle: #b87a0e;
+    --color-status-offline: #7a8189;
+    --color-danger: #c4382c;
+    --color-danger-soft: #fbe9e7;
+    --color-danger-text: #a52a1f;
+    --color-danger-contrast: #ffffff;
+
+    --avatar-0-bg: #d4e6f3;
+    --avatar-0-fg: #1e3a4e;
+    --avatar-1-bg: #e6dbf3;
+    --avatar-1-fg: #3a2a4e;
+    --avatar-2-bg: #f3e6d4;
+    --avatar-2-fg: #4e3a1e;
+    --avatar-3-bg: #d4f3e6;
+    --avatar-3-fg: #1e4e3a;
+    --avatar-4-bg: #f3d4de;
+    --avatar-4-fg: #4e1e2e;
+    --avatar-5-bg: #dbe2ef;
+    --avatar-5-fg: #2e3a4e;
+    --avatar-6-bg: #e8ecd8;
+    --avatar-6-fg: #3a3f2a;
   }
 }
 
 :root {
-  --font-sans: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
-  --font-mono: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  --font-sans: "Instrument Sans Variable", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, Consolas, monospace;
 
-  --radius-sm: 4px;
+  --radius-sm: 6px;
   --radius-md: 8px;
+  --radius-lg: 10px;
+  --radius-xl: 12px;
+  --radius-2xl: 16px;
+  --radius-full: 999px;
+
+  --size-sidebar: 272px;
+  --size-members: 240px;
+  --size-header: 56px;
 }
